@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar
+        {
+            background-color :rgb(5, 17, 184);
+            margin : 30px auto;
+            width : 90%;
+            border-radius : 30px;
+        }
+        .navbar li 
+        {
+            list-style : none;
+            float : left;
+            margin : 15px 15px;
+        }
+        .navbar ul
+        {
+            overflow : auto;
+        }
+        .navbar li a
+        {
+            padding : 5px;
+            text-decoration : none;
+            color :rgb(247, 247, 247);
+            font-size : 25px;
+        }
+        .navbar li a:hover
+        {
+            color : yellowgreen;
+            cursor : pointer;
+        }
+        .searchbox
+        {
+            float : right;
+            background-color : rgb(9, 13, 103);
+            margin : 12px 50px;
+            padding : 2px;
+        }
+        .navbar input
+        {
+            border : 3px solid cyan;
+            border-radius : 25px;
+            margin : 5px;
+            padding : 5px;
+            width : 250px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href = "#">First</a></li>
+                <li><a href = "#">Second</a></li>
+                <li><a href = "#">Third</a></li>
+                <li><a href = "#">Fourth</a></li>
+                <div class="searchbox"><input type="text" name="search" id="search" placeholder="Search this website"></div>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

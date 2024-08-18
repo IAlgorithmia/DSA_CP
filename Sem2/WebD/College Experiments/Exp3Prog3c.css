@@ -1,0 +1,19 @@
+.ModifyMe
+{
+    font-weight:bold;
+    font-size:200%;
+    color:white;
+    background-color:black;
+    font-style:italic;
+    text-align:center;
+}
+#ID1
+{
+    background-color:bisque;
+    color:red;
+}
+#ID2
+{
+    background-color:bisque;
+    color:darkblue;
+}

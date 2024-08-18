@@ -1,0 +1,138 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+}
+
+body {
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: linear-gradient(to bottom, #E6E6FA, #CF9FFF);
+}
+
+header {
+    font-size: 6rem;
+    font-weight: bolder;
+    background-image: url(https://img.freepik.com/free-vector/stream-binary-code-design_53876-97406.jpg?w=1380&t=st=1707283570~exp=1707284170~hmac=054badeb4011d49463fcd12075a9246f658585947af9152769dedf9b2b026e73);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    background-size: 70%;
+    text-shadow: 10px 10px 20px rgb(184, 87, 184);
+    padding-top: 2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.history-images, .history-videos {
+    font-size: 3rem;
+    font-weight: bolder;
+    padding: 2rem;
+    margin: 4rem;
+    text-align: center;
+}
+
+.history-images p {
+    background-image: linear-gradient(to right, purple, black);
+    color: transparent;
+    background-clip: text;
+}
+
+.history-videos p {
+    background-image: linear-gradient(to left, purple, black);
+    background-clip: text;
+    color: transparent;
+}
+
+main img, main iframe {
+    margin-top: 2rem;
+    width: 35rem;
+    height: 20rem;
+    border-radius: 2rem 2rem 2rem 2rem;
+    box-shadow: 0px 10px 20px pink;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+    color: purple;
+    font-size: 1.5rem;
+    text-indent: 2rem;
+}
+
+.about h1 {
+    padding-top: 2rem;
+    font-size: 3rem;
+    background-image: radial-gradient(purple, rgb(234, 130, 130));
+    color: transparent;
+    background-clip: text;
+}
+
+.about p {
+    text-shadow: 2px 2px 15px rgb(148, 45, 45);
+}
+
+.register {
+    position: absolute;
+    right: 11rem;
+    top: 17rem;
+}
+
+a {
+    text-decoration: none;
+    background-image: radial-gradient(purple, rgb(234, 130, 130));
+    color: transparent;
+    background-clip: text;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.search {
+    position: absolute;
+    right: 20px;
+    top: 21rem;
+}
+
+.search label {
+    background-image: radial-gradient(purple, rgb(234, 130, 130));
+    color: transparent;
+    background-clip: text;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+form {
+    border: 5px solid black;
+    color: rgb(77, 9, 77);
+}
+
+form {
+    padding: 2rem;
+    margin: 2rem;
+}
+
+form h2 {
+    padding: 2rem;
+}
+
+form h2 p {
+    padding: 2rem;
+}

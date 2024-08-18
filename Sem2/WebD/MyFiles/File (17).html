@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute and Nth Child pseudo selectors</title>
+    <style>
+        .container
+        {
+            width : 400px;
+            margin : auto;
+        }
+        input
+        {
+            display : block;
+        }
+        input[type = "text"]
+        {
+            padding : 20px;
+            font-size : 40px;
+        }
+        a[target] /*similarly we can use target = "_blank" ke liye specifically*/
+        {
+            display : block;
+            font-size : 30px;
+            text-decoration : none;
+        }
+        li
+        {
+            margin : 5px;
+            padding : 5px;
+        }
+        li:nth-child(2n+0) /*Even bhi likh sakte hain*/
+        {
+            background-color : red;
+        }
+        li:nth-child(2n+1) /*Odd bhi likh sakte hain*/
+        {
+            background-color : orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://google.com" target = "_blank">Go To Google</a>
+        <a href="https://facebook.com" target = "">Go To Facebook</a>
+        <form action="" class="form-control">
+            <input type="text" placeholder = "Enter your name">
+            <input type="password" placeholder = "Enter your password">
+            <input type="submit" value="submit">
+        </form>
+        <ul>
+            <li class="items" id="item1">item1</li>
+            <li class="items" id="item2">item2</li>
+            <li class="items" id="item3">item3</li>
+            <li class="items" id="item4">item4</li>
+            <li class="items" id="item5">item5</li>
+        </ul>
+    </div>
+</body>
+</html>

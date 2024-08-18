@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body style="">
+    <form method="post" action="/generate-json">
+        <fieldset>
+            <legend>
+                <h1>Student Feedback Form</h1>
+            </legend>
+            <h2>
+                <p>
+                    <label for="name">Name - </label>
+                    <input type="text" id="name" required>  
+                </p>
+                <p>
+                    <label for="email">Email - </label >
+                    <input type="email" required>
+                </p>
+                <p>
+                    <label for="faculty">Faculty Name - </label>
+                    <select style="height : 5vh; width : 6vw; font-size : 1.2rem;" name="faculty" id="faculty" required>
+                        <optgroup label="Computer Science">
+                            <option value="volvo">Adam</option>
+                            <option value="saab">Jason</option>
+                        </optgroup>
+                        <optgroup label="Information Technology">
+                            <option value="mercedes">Carl</option>
+                            <option value="audi">Emma</option>
+                        </optgroup>
+                    </select>
+                </p>
+                <p>
+                <fieldset>
+                    <legend>
+                        Commendation
+                    </legend>
+                    <input type="radio" name="eval" id="Improving" value="Improving" required>
+                    <label for="Improving">Improving</label>
+                    <input type="radio" name="eval" id="Competent" value="Competent" required>
+                    <label for="Competent">Competent</label>
+                    <input type="radio" name="eval" id="Effective" value="Effective" required>
+                    <label for="Effective">Effective</label>
+                    <input type="radio" name="eval" id="Accomplished" value="Accomplished" required>
+                    <label for="Accomplished">Accomplished</label>
+                    <input type="radio" name="eval" id="Exemplary" value="Exemplary" required>
+                    <label for="Exemplary">Exemplary</label>
+                </fieldset>
+                </p>
+                <p>
+                    <label for="aspects">Positive Aspects - </label>
+                    <textarea style="margin-left : 6vw;" name="" id="" cols="58" rows="4"></textarea>
+                </p>
+                <p>
+                    <label for="aspects">Areas of Improvement - </label>
+                    <textarea style="margin-left : 1vw;" name="" id="" cols="58" rows="4"></textarea>
+                </p>
+                <button type="submit" value="submit">Submit</button>
+                <button type="reset" value="reset">Reset</button>
+            </h2>
+        </fieldset>
+    </form>
+</body>
+
+</html>

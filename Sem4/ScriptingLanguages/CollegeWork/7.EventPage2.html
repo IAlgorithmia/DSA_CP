@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIH</title>
+<link rel="stylesheet" href="./7.EventPage.css">
+
+<body>
+    <header>
+        Smart India Hackathon<br>SIH 2024
+    </header>
+    <form method="post" action="/generate-json">
+        <h1
+            style="margin-left :2rem; text-align : center; display : flex; justify-content : center; align-items : center;">
+            Student Registration Form</h1>
+        <div class="parent" style="margin : auto; max-width : 500px;">
+            <div class="inputs" style="margin : 0.5rem;">
+                <label for="name">Student Name : </label>
+                <input type="text" id="name">
+            </div>
+            <div class="inputs" style="margin : 0.5rem;">
+                <label for="id">Student ID : </label>
+                <input type="number">
+            </div>
+            <div class="inputs" style="margin : 0.5rem;">
+                <label for="photo">Upload Photo : </label>
+                <input type="file" accept="image/jpg, image/jpeg, image/png">
+            </div>
+            <div class="inputs" style="margin : 0.5rem;">
+                <label for="dob">Date Of Birth : </label>
+                <input type="date" min="2000-01-01">
+            </div>
+            <div class="inputs" style="margin : 0.5rem;">
+                <label for="gender">Gender : </label>
+                <select name="" id="">
+                    <option value="Female" selected>Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </div>
+            <div class="inputs" style="margin : 0.5rem;">
+                <label for="name">Address : </label>
+                <br>
+                <textarea name="" id="" cols="30" rows="3"></textarea>
+            </div>
+            <div class="maparea" style="margin : 0.5rem;">
+                Choose Location :
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13829.205585757867!2d76.81442924999999!3d29.94200815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e3f422f5244e7%3A0x9c630c311d6349b8!2sNIT%20KURUKSHETRA!5e0!3m2!1sen!2sin!4v1707208565447!5m2!1sen!2sin"
+                    width="400" height="300" style="border:0; margin : 0.5rem;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <input type="submit" style="margin : 0.5rem;">
+        </div>
+    </form>
+</body>
+
+</html>

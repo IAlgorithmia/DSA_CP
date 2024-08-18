@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Hidden Div</title>
+    <script>
+        function showStats() {
+            var statsDiv = document.getElementById("stats");
+            statsDiv.style.display = "block";
+        }
+    </script>
+    <style>
+        .stats-container {
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+        
+        .stat-item {
+            margin-bottom: 10px;
+        }
+        
+        .stat-title {
+            font-weight: bold;
+        }
+        
+        .stat-value {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p onclick="showStats()">Click to show stats</p>
+    
+    <div id="stats" style="display: none;">
+        <h1>Player Stats</h1>
+    
+    <div class="stats-container">
+        <div class="stat-item">
+            <span class="stat-title">Player Name:</span>
+            <span class="stat-value">John Doe</span>
+        </div>
+        
+        <div class="stat-item">
+            <span class="stat-title">Team:</span>
+            <span class="stat-value">Team A</span>
+        </div>
+        
+        <div class="stat-item">
+            <span class="stat-title">Total Goals:</span>
+            <span class="stat-value">15</span>
+        </div>
+        
+        <div class="stat-item">
+            <span class="stat-title">Assists:</span>
+            <span class="stat-value">10</span>
+        </div>
+        
+        <div class="stat-item">
+            <span class="stat-title">Yellow Cards:</span>
+            <span class="stat-value">2</span>
+        </div>
+        
+        <div class="stat-item">
+            <span class="stat-title">Red Cards:</span>
+            <span class="stat-value">1</span>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

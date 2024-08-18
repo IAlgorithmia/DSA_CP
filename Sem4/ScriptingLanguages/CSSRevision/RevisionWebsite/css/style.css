@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,200;1,400&display=swap');
+
+/* RESET */
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* This makes our image responsive */
+
+input, button, textarea {
+    font: inherit;
+}
+
+/* VARIABLES */
+
+:root {
+    --BGCOLOR-FADE: rgb(252, 220, 160);
+    --BGCOLOR: orange;
+    --BGIMAGE: linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLOR-FADE));
+    --BODY-BGCOLOR: #FFF;
+    --BUTTON-COLOR: WHITE;
+    --BORDER-COLOR: #333;
+    --BORDERS: 1px solid var(--BORDER-COLOR);
+    --FF-HEADINGS: "Verdana", cursive;
+    --FF: "Montserrat", sans-serif;
+    --FONT-COLOR: #000;
+    --FS: clamp(1rem, 2.2vh, 1.5rem);
+    --HEADER-BGCOLOR: black;
+    --HEADER-COLOR: white;
+    --HERO-BGCOLOR: rgb(51, 178, 51, 0.75);
+    --HERO-COLOR: #fff;
+    --HIGHLIGHT-COLOR: rgb(51, 178, 51);
+    --LINK-ACTIVE: orange;
+    --LINK-COLOR: #000;
+    --LINK-HOVER: hsla(0, 0%, 0%, 0.6);
+    --MARGIN: clamp(1em, 2.5vh, 1.5em) 0;
+    --NAV-BGCOLOR: white;
+    --PADDING-SIDE: 2.5%;
+    --PADDING-TB: 0.25em;
+    /* first for top and bottom then for left and right */
+}
+
+@media(prefers-color-scheme : dark) {
+
+    /* if your default mode/theme is dark the these will overwrite */
+    :root {
+        --BGCOLOR-FADE: gray;
+        --BGCOLOR: #000;
+        --BODY-BGCOLOR: #333;
+        --BORDER-COLOR: whitesmoke;
+        --BUTTON-COLOR: #000;
+        --FONT-COLOR: whitesmoke;
+        --HEADER-COLOR: whitesmoke;
+        --HERO-COLOR: #333;
+        --HIGHLIGHT-COLOR: whitesmoke;
+        --LINK-ACTIVE: rgb(252, 200, 103);
+        --LINK-COLOR: whitesmoke;
+        --LINK-HOVER: orange;
+        --NAV-BGCOLOR: rgb(20, 20, 20);
+    }
+}
+
+/* UTILITY CLASSES */
+
+.offscreen {
+    position: absolute;
+    left: -100rem;
+}
+
+.norap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+/* GENERAL-STYLES */
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--FS);
+    font-family: var(--FF);
+    background-color: var(--BGCOLOR);
+    background-image: var(--BGIMAGE);
+}
+
+body {
+    background-color: var(--BODY-BGCOLOR);
+    /* before this, the orange should would appear on the html, but after applying this, the color only comes on the background */
+    color: var(--FONT-COLOR);
+    min-height: 100vh;
+    max-width: 45rem;
+    margin: 0 auto;
+    border-left: var(--BORDERS);
+    border-right: var(--BORDERS);
+    box-shadow: 0px 0px 50px var(--BORDER-COLOR);
+}
+
+h1, h2, h3 {
+    font-family: var(--FF-HEADINGS);
+    letter-spacing: 0.1em;
+}
+
+h2, h3 {
+    margin-bottom: 1em;
+    color: var(--HIGHLIGHT-COLOR);
+}
+
+p {
+    line-height: 1.5;
+}
+
+a:any-link {
+    /* selects links that have not been clicked and links that have already been visited */
+    color: var(--LINK-COLOR);
+}
+
+a:hover, a:focus-visible {
+    color: var(--LINK-HOVER);
+}
+
+a:active {
+    color: var(--LINK-ACTIVE);
+}
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header__h1 {
+    text-align: center;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB) var(--PADDING-SIDE);
+}
+
+.header__nav {
+    background-color: var(--NAV-BGCOLOR);
+    border-bottom: var(--BORDERS);
+    font-weight: bold;
+    box-shadow: 0px 6px 5px -5px var(--BORDER-COLOR);
+}
+
+.header__ul {
+    padding: var(--PADDING-TB) var(--PADDING-TB);
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hero {
+    position: relative;
+}
+
+.hero__h2 {
+    background-color: var(--HERO-BGCOLOR);
+    color: var(--HERO-COLOR);
+    padding: 0.25em 0.5em;
+    letter-spacing: 0.1rem;
+    text-shadow: 2px 4px 6px var(--BORDER-COLOR);
+    position: absolute;
+    left: 20px;
+    top: -1000px;
+    animation: showWelcome 1s ease-in-out 0.5s forwards;
+    /* the forwards here measn that the element will be in the final state the animation left it in, otherwise you can check that it goes back to itrs orgiginal state and disappears */
+}
+
+@keyframes showWelcome {
+    0% {
+        top: -20px;
+        transform: skew(0deg, -5deg) scaleY(0);
+    }
+
+    80% {
+        top: 30px;
+        transform: skew(10deg, -5deg) scaleY(1.2);
+    }
+
+    100% {
+        top: 20px;
+        transform: skew(-10deg, -5deg) scaleY(1);
+    }
+
+}
+
+.footer {
+    position: sticky;
+    bottom: 0px;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB) var(--PADDING-SIDE);
+    text-align: center;
+}
+
+.main {
+    padding: var(--PADDING-TB) var(--PADDING-SIDE);
+}
+
+.main__article {
+    scroll-margin-top: 6rem;
+}
+
+.main__article:first-child {
+    margin-top: 1em;
+}
+
+.main__article:last-child {
+    min-height: calc(100vh - 20rem);
+}
+
+.about__trivia {
+    margin: var(--MARGIN);
+}
+
+.about__trivia-answer {
+    margin-top: 1em;
+}
+
+.contact__h2 {
+    margin: 0;
+}
+
+.contact__fieldset {
+    border: none;
+}
+
+.contact__p {
+    margin: 1em 0;
+}
+
+.contact__label {
+    display: block;
+    font-weight: bolder;
+}
+
+.contact__input, .contact__textarea {
+    padding: 0.5rem;
+    border-radius: 15px;
+    border-width: 2px;
+    width: 100%;
+}
+
+.contact__button {
+    padding: 0.5em;
+    border-radius: 15px;
+    background-color: var(--HIGHLIGHT-COLOR);
+    color: var(--BUTTON-COLOR);
+
+}
+
+tbody, thead, tfoot, tr {
+    /* this means that those elements will not be considered when making the grid rather their contents */
+    display: contents;
+}
+
+.menu__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(10px, auto);
+    gap: 0.1em;
+    margin-bottom: 1em;
+}
+
+.menu__cs, .menu__cr, .menu__sf, .menu__header {
+    height: 100%;
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bolder;
+    display: grid;
+    place-content: center;
+}
+
+.menu__header, .menu__item {
+    width: 100%;
+    padding: 1em;
+    border: medium ridge var(--BORDER-COLOR);
+}
+
+#crunchy {
+    grid-row: 2/5;
+}
+
+#soft {
+    grid-row: 5/8;
+}
+
+.menu__item {
+    display: grid;
+    place-content: center;
+}
+
+#cands {
+    grid-column: 1/4;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+thead th:first-child {
+    border-top-left-radius: 15px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 15px;
+}
+
+@media screen and (min-width : 576px) {
+    .header__h1::after {
+        content: " :)"
+    }
+
+    .header__h1::before {
+        content: "(: "
+    }
+
+    .menu__cr, .menu__header, .menu__cs, .menu__sf {
+        font-size: 125%;
+    }
+}

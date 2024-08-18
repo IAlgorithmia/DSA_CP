@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 100px auto;
+            border: 3px solid #ccc;
+            padding: 5rem;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 5px;
+        }
+
+        .delete-btn {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .row {
+            margin-top: 2rem;
+            
+            width : 50%;   
+        }
+
+        button {
+            width: 15rem;
+            padding: 0.3rem;
+            
+        }
+        div.displayhere
+        {
+            font-family : Verdana, Geneva, Tahoma, sans-serif;
+            font-size : 2rem;
+            position : absolute;
+            top : 260px;
+            right : 300px;   
+            max-width : 25rem;         
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>TODO List</h1>
+        <form id="todo-form">
+            <div class="row"><input value="(EmptyItem)" type="text" id="todo-input">
+                <button id="SubmitButton" type="button">Add to the list</button>
+            </div>
+            <div class="row"><input type="text" id="remove-input" placeholder="Enter your TODO here">
+                <button id="RemoveButton" type="button">Remove this item from the list</button>
+            </div>
+            <div class="row">
+                <button id="DeleteButton" type="button">Delete the list</button>
+            </div>
+            <div class="row">
+                <button id="DisplayButton" type="button">Display the list</button>
+            </div>
+        </form>
+        <div class="displayhere">
+            List is Empty
+        </div>
+    </div>
+    
+    <script src="Todo.js"></script>
+</body>
+
+</html>

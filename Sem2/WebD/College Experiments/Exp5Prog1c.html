@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Background Color</title>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.body.style.backgroundColor = "lightblue";
+            }, 5000);
+        };
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

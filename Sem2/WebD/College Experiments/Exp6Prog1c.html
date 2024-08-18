@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scientific Calculator</title>
+    <script>
+        function calculate() {
+            var expression = document.getElementById("expression").value;
+            var result = eval(expression);
+            
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h2>Scientific Calculator</h2>
+    
+    <input type="text" id="expression" placeholder="Enter an expression">
+    <button onclick="calculate()">Calculate</button>
+    
+    <p id="result"></p>
+</body>
+</html>

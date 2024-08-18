@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexboxTutorial</title>
+    <style>
+        .container
+        {
+            border : 10px solid black;
+            height : 344px;
+            width : 90%;
+            margin : auto;
+            display : flex;
+            /* flex-direction : row-reverse;
+            flex-wrap : wrap-reverse; */
+            /* flex-flow : row-reverse wrap can be written instead of writing the last two lines */
+            justify-content : space-evenly;
+            align-items : center;
+            align-items : stretch;
+        }
+        .item
+        {
+            margin : 10px;
+            padding : 5px;
+            background-color : tomato;
+            border : 5px solid ;
+            width  : 150px;
+            height : 150px;
+        }
+        #item-1
+        {
+            order : 2;
+            flex-shrink : 2;
+            /* End mein jaata hai highest order vaala */    
+        }
+        #item-2
+        {
+            flex-grow : 3;
+            flex-basis : 320px;
+            /* when flex direction is set to row, it controls width and height when set to column */
+        }
+        #item-3
+        {
+            flex : 2 5 340px;
+            /* grow, shrink and basis */
+            align-self : center; /* Center of the flex */
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a flexbox tutorial</h1>
+    <div class="container">
+        <div class="item" id="item-1">First</div>
+        <div class="item" id="item-2">Second</div>
+        <div class="item" id="item-3">Third</div>
+    </div>
+</body>
+</html>

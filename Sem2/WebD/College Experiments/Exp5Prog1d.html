@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Styling</title>
+    <script>
+        function setStyle(element, style) {
+            var currentStyle = element.style.fontWeight;
+            
+            if (currentStyle === style) {
+                element.style.fontWeight = "normal";
+            } else {
+                element.style.fontWeight = style;
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <span onclick="setStyle(this, 'bold')">Bold</span>
+        <span onclick="setStyle(this, 'italic')">Italic</span>
+        <span onclick="setStyle(this, 'underline')">Underline</span>
+        <br>
+        This is a sample text.
+    </p>
+</body>
+</html>

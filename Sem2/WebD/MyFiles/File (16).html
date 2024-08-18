@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is more on selectors</title>
+    <style>
+        div p /*Andar kahin bhi ho*/
+        {
+            background-color : green;
+        }
+        div > p /*Immediately inside*/
+        {
+            background-color : violet;
+        }
+        div + p /*p is right after div, p is immediately after div*/
+        {
+            background-color : cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="boxes" id="box1">
+            <p>
+                This is a paragraph immediately inside div
+            </p>
+            <ul>
+                <li>
+                    This is a list item
+                </li>
+            </ul>
+        </div>
+        <div class="boxes" id="box2">
+            <ul>
+                <li>
+                    <p>
+                        This is a paragraph iside list item
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="boxes" id="box3">
+            <ol>
+                <li>
+                    <span>
+                        This is a span inside list itme
+                    </span>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <p>
+        This is the outermost paragraph!
+    </p>
+</body>
+
+</html>

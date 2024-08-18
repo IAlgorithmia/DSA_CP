@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+            
+            if (age === "" || isNaN(age) || age < 1 || age > 150) {
+                alert("Please enter a valid age between 1 and 150.");
+                return false;
+            }
+            
+            // Additional validation checks can be added here
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

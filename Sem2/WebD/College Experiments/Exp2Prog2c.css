@@ -1,0 +1,55 @@
+#Title1{
+    background-color:blue;
+    color:Cyan;
+    font-size:200%;
+    text-align:center;    
+    font-weight: bold;
+}
+#Title2{
+    background-color:green;
+    color:yellow;
+    font-size:200%;
+    text-align:center;    
+    font-weight: bold;
+}
+.heading
+{
+    border:1px solid black;
+    font-weight:bold;
+    padding:5px;
+    align-self: center;
+    border-collapse:collapse;
+    flex:1;
+    text-align:center;
+    background-color:blueviolet;
+    color:pink;
+    font-size: 117%;
+}
+.data
+{
+    border:1px solid black;
+    border-collapse:collapse;
+    padding:5px;
+    align-self: center;
+    flex:1;
+    text-align:center;
+}
+.MakeMeRow
+{
+    display:flex;
+    border-collapse:collapse;
+    justify-content: space-between;
+    width : 100%;
+}
+div:nth-child(even)
+{
+    background-color:crimson;
+    color:orange;
+    font-size:102%;
+}
+div:nth-child(odd)
+{
+    background-color:orange;
+    color:crimson;
+    font-size:102%;
+}

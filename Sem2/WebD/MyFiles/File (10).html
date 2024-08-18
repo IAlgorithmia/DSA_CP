@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display Property</title>
+    <style>
+        img
+        {
+            display : block;
+            margin  :auto;
+            width : 40px;
+            padding : 10px;
+        }
+        h3
+        {
+            text-align : center;
+            margin : 0px;
+        }
+        header
+        {
+            width : 20%;
+            margin : auto;
+            border : 3px solid darkblue;
+        }
+        .box
+        {
+            border : 3px solid black;
+            margin : 10px;
+            padding : 5px;
+            display : inline-block; /* iske karand inline hoke bhi width property ueable hoti hai*/
+            box-sizing : border-box;
+            width : 31%;
+            background-color : beige;
+        }
+        .container
+        {
+            width : 80%;
+            margin : auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="top">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/320px-The_Blue_Marble_%28remastered%29.jpg" alt="">
+        <h3>
+            Welcome to The world!
+        </h3>
+    </header>
+    <div class="container">
+        <div class="box">
+            <h4>This is another heading</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, deserunt, praesentium officiis perspiciatis pariatur, nisi vel excepturi nihil velit odio nam. Quo animi corrupti soluta unde. Laborum, sunt distinctio, possimus ab quae vitae ea earum voluptatum nesciunt consequuntur impedit sapiente.</p>
+        </div>
+        <div class="box">
+            <h4>This is another heading</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, deserunt, praesentium officiis perspiciatis pariatur, nisi vel excepturi nihil velit odio nam. Quo animi corrupti soluta unde. Laborum, sunt distinctio, possimus ab quae vitae ea earum voluptatum nesciunt consequuntur impedit sapiente.</p>
+        </div>
+        <div class="box">
+            <h4>This is another heading</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, deserunt, praesentium officiis perspiciatis pariatur, nisi vel excepturi nihil velit odio nam. Quo animi corrupti soluta unde. Laborum, sunt distinctio, possimus ab quae vitae ea earum voluptatum nesciunt consequuntur impedit sapiente.</p>
+        </div>
+    </div>
+</body>
+</html>

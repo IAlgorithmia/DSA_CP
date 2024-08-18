@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Units</title>
+    <style>
+        .container
+        {
+            font-size : 50px;
+            border : 5px red solid;
+            height  : 100vh; /*Viewport height percentage hi hai basically*/
+            width : 100vw; /*Viewport width percentage hi hai basically*/ 
+        }
+        #id1
+        {
+            text-align : center;
+            border : 2px solid green;
+            margin : 25px;
+            font-size : 1em;
+        }
+        #id2
+        {
+            text-align : center;
+            border : 2px solid green;
+            margin : 25px;
+            font-size : 2em;
+            padding : 3em; /*This means 3 times the font-size of this element*/
+        }
+        #id3
+        {
+            text-align : center;
+            border : 2px solid green;
+            margin : 25px;
+            font-size : 3rem;
+            padding : 3rem; /*Re always works accorgin to the root html styling*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="id1">This is the first heading</h1>
+        <h1 id="id2">This is the second heading</h1>
+        <h1 id="id3">This is the third heading</h1>
+    </div>
+</body>
+</html>

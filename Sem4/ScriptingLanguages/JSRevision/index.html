@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <randomHTMLReturner />
+    <h1>People Entered</h1>
+    <h2 id="count-el">0</h2>
+    <button onclick="increment()">Increment</button>
+    <button onclick="decrement()">Decrement</button>
+    <button onclick="saveData()">Save the Data</button>
+    <button onclick="reset()">Reset the count</button>
+    <h3 id="history">History : </h3>
+    <label for="name">Whats your name : </label>
+    <input id="nameofuser" type="text" placeholder="Enter your name here">
+    <button id="nameinput">Click Here to submit</button>
+    <h3 id="greetarea">Who are you?</h3>
+    <h3 id="randinfo">Generate Random here</h3>
+    <button id="randomGen">Generate</button>
+    <h1>Below we have a temperature converter : </h1>
+    <div class="outerbox">
+        <div class="heading">Temperature Conversion</div>
+        <div class="inputarea"><label for="temp">Enter the temperature : </label><input type="number" id="tempinput">
+        </div>
+        <div class="choice"><input type="radio" name="temperature" id="conv1" required><label for="conv1">Celcius to
+                Fahrenheit</label><input type="radio" name="temperature" id="conv2" required><label
+                for="conv2">Fahrenheit to
+                Celcius</label></div>
+        <button id="tempconvert" type="submit">Convert Now</button>
+        <div id="result"></div>
+    </div>
+    <br><br><br>
+    <div class="diceroller">
+        <label for="dicenumber">Enter the number of dice you want : </label> <input type="number" id="dicenumber">
+        <button id="genranddice">Click Here to Roll the Dice</button>
+        <br><br><br>
+        <div id="dicearea">This area is reserved for images</div>
+    </div>
+    <div>
+        <h3>This is the current time : </h3>
+        <h3 id="clock">Idhar dekh jaldi time bataunga</h3>
+    </div>
+    <div id="stopwatchdiv">
+        <h3 id="swtime">Idhar stopwatch ka time aayega se babu</h3>
+        <button id="start">Start Stopwatch</button>
+        <button id="stop">Stop Stopwatch</button>
+        <button id="reset">Reset Stopwatch</button>
+        <!-- Idhar hum text store button banake times ko store bhi kara sakte hain as we have done above in the coutner program -->
+    </div>
+    <div style="position : relative; background-color: blue; height : 100px; width : 100px; display:grid; place-content : center"
+        id="manbox">
+        <h1 class="emojiarea">😄</h1>
+    </div>
+    <br><br><br>
+    <div class="imageslider">
+        <img class="supra" style="height : 100px; width : auto;"
+            src="https://www.topgear.com/sites/default/files/news-listicle/image/supraff_0.jpg" alt="">
+        <img class="supra" style=" display : none; height : 100px; width : auto;"
+            src="https://images.pistonheads.com/nimg/41615/Supra_04.jpg" alt="">
+        <img class="supra" style=" display : none; height : 100px; width : auto;"
+            src="https://www.topgear.com/sites/default/files/news-listicle/image/toyota-heritage-supra-01_0_0.jpg"
+            alt="">
+    </div>
+    <button onclick="nextSupra()">Next Image</button><button onclick="previousSupra()">Previous Image</button>
+    <script src="./index.js"></script>
+    <!-- script should be at the end ! -->
+</body>
+
+</html>

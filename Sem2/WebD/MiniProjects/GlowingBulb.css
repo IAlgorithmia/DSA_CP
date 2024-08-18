@@ -1,0 +1,21 @@
+*
+{
+    background-color: black;
+}
+body
+{
+    display : flex;
+    flex-wrap : wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction : column;
+    text-align: center;
+}
+.bulb
+{
+    background-color : yellow;
+    height : 5rem;
+    padding : 15rem;
+    margin-top : 5rem;
+    border-radius : 49% 50% 10% 10% / 88% 86% 0% 0% ;
+}

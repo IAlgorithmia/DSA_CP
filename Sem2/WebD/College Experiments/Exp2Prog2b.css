@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+    background-color: blue;
+    color: cyan;
+}
+
+h2 {
+    text-align: center;
+    background-color: green;
+    color: yellow;
+}
+
+table,
+tr,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align:center;
+}
+tr:nth-child(even)
+{
+    background-color:crimson;
+    color:orange;
+}
+tr:nth-child(odd)
+{
+    background-color:orange;
+    color:crimson;
+}
+td{
+    font-size:110%;
+}
+table {
+    width: 100%;
+}
+th{
+    font-size:160%;
+    background-color:darkviolet;
+    color:pink;
+}

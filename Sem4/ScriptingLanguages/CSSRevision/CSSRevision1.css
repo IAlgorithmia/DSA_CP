@@ -1,0 +1,51 @@
+li:nth-child(3) {
+    color: blue;
+}
+
+.container {
+    border: 2px solid black;
+    display: flex;
+    min-width: 300px;
+    max-width: 700px;
+    min-height: 200px;
+    margin: auto;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    flex-flow: row wrap;
+    align-content: center;
+}
+
+.boxes {
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 50px;
+    background-color: blue;
+    border: 3px solid green;
+}
+
+.boxes:nth-child(1) {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.boxes:nth-child(2) {
+    flex-grow: 10;
+    flex-shrink: 10;
+}
+
+.boxes:nth-child(3) {
+    flex-grow: 20;
+    flex-shrink: 20;
+}
+
+.container {
+    background-color: hsla(0, 0%, 0%, 0.43);
+}
+
+.filter {
+
+    background-image: url(https://i.pinimg.com/736x/6c/44/c9/6c44c96b293f0f4577c1698cf8399b20.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms, Input and Other Tags</title>
+</head>
+
+<body>
+    <h3>HTML Forms</h3>
+    <form action="backend.php">
+        <div>
+            <label for="name">Name : </label>
+            <!-- This helps us to highlight the textbox when the text is clicked along with when the textbox is clicked -->
+            <input type="text" name="myName" id="name">
+        </div>
+        <br>
+        <div>
+            Birth Date : <input type="month" name="myMonth">
+        </div>
+        <br>
+        <div>
+            Age : <input type="number" name="myAge">
+        </div>
+        <br>
+        <div>
+            Email : <input type="email" name="myEmail">
+        </div>
+        <br>
+        <div>
+            Todays Date : <input type="date" name="myDate">
+        </div>
+        <br>
+        <div>
+            Are you eligible? : <input type="checkbox" name="myCheck" checked>
+        </div>
+        <br>
+        <div>
+            Gender : Male <input type="radio" name="myGender" id=""> Female <input type="radio" name="myGender" id=""> Other <input type="radio" name="myGender" id="">
+        </div>
+        <!-- Radio matlab aisa checkbox sa jisme koi ek option hi select ho skta hai -->
+        <!-- IMP IMP IMP IMP : same name hona chahiye input tags ka for radio to be applicable to all those, ID alag alag ho sakti hai-->
+        <br>
+        <div>
+            Write a few words about yourself : <br> <textarea name="myText" cols="90" rows="10"></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="Car">Select the Car : </label>
+            <select name="myCar" id="Car">
+                <option value="S">Swift</option>
+                <option value="M">Maseratti</option>
+                <option value="H">Henessey</option>
+                <option value="WM">WMotors</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Submit Now">
+        </div>        
+        <br>
+        <div>
+            <input type="reset" value="Reset Now">
+        </div>
+        <!-- Althought we have used br tag sabove, it's highly recommended to avoid it as much as possible, and do the styling using CSS -->
+    </form>
+</body>
+
+</html>

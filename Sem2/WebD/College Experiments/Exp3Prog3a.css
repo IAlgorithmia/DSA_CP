@@ -1,0 +1,17 @@
+body div span ul li{
+    background-color:yellow;
+    color:green;
+    font-weight:bold;
+    font-style:italic;
+    text-decoration:underline;
+}
+p:nth-child(even)
+{
+    background-color:darkblue;
+    color:cyan;
+}
+p:nth-child(odd)
+{
+    background-color:greenyellow;
+    color:indigo;
+}

@@ -1,0 +1,22 @@
+html, body
+{
+    height : 100%;
+    width : 100%;
+    margin : 0;
+    padding : 0;
+    transition: all ease-in-out 1s;
+}
+ul
+{
+    display : flex;
+    gap : 2rem;
+    background-color : yellow;
+    padding : 2rem;
+    margin : 0;
+}
+li
+{
+    list-style : none;
+    font-size : 1.5rem;
+    font-weight : bold;
+}

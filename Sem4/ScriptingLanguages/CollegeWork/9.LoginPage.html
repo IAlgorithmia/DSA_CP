@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Protest+Strike&display=swap');
+
+        body {
+            background-color: #FDFCDC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: all 1s ease-in-out;
+        }
+
+        .parent {
+            background-color: #00AFB9;
+            padding: 2rem;
+            border: 7px solid #F07167;
+            border-radius: 50px;
+        }
+
+        .heading {
+            text-align: center;
+            font-family: "Protest Guerrilla", sans-serif;
+            font-size: 3rem;
+            font-style: normal;
+            color: #fff;
+        }
+
+        .inputs {
+            font-family: "Protest Strike", sans-serif;
+            color: #E8F0FF;
+            font-size: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        #submitbutton,
+        #forgotPwd {
+            font-size: 1.5rem;
+            text-decoration: none;
+            padding: 1.1rem;
+            border-radius: 5px;
+        }
+
+        #submitbutton:hover {
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <section class="heading">Login For Registered Accounts</section>
+        <form id="myForm" class="inputs">
+            <p><label for="username">Enter Your Username : </label><input placeholder="Enter your Username"
+                    name="username" id="username" type="text"></p>
+            <p><label for="emailid"></label>Enter your Email : <input placeholder="Enter your Email ID" name="emailid"
+                    id="emailid" type="email"></p>
+            <p><label for="pswd"></label>Enter Your Password : <input placeholder="Enter your Password" name="pswd"
+                    id="pswd" type="password"></p>
+            <p><label for="showpwd">Show Password : </label><input onchange="passVisibility()" type="checkbox"
+                    name="showpwd" id="showpwd" style="height: 20px; width : 20px;"></p>
+            <p><input id="submitbutton" type="button" placeholder="Login" value="Login"></p>
+            <p><input onclick="forgot()" id="forgotPwd" type="button" placeholder="Forgot Password"
+                    value="Forgot Password"></p>
+            <a href="./9.Signup.html">I want to Signup Instead</a>
+            <!-- value is used for changing the text inside a button -->
+        </form>
+    </div>
+    <script>
+        // .value neeche use karna in expressions, not here in varables definition
+        //Here agar hum idhar hi .value laga de to this doesnt work properly maybe because shayad ta tak input nahi process hua
+        const username = document.getElementById("username");
+        const formElem = document.getElementById("myForm");
+        const showPass = document.getElementById("showpwd");
+        const emailid = document.getElementById("emailid");
+        const password = document.getElementById("pswd");
+        const signup = document.getElementById("submitbutton");
+        const hasUppercase = /[A-Z]/;
+        const hasLowercase = /[a-z]/;
+        const hasNumbers = /\d/;
+        const hasSymbols = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+        let strength = 0;
+        const emailRegexExp = /\S+@\S+\.\S+/;
+
+        function forgot() {
+            window.prompt("Enter your mobile number : ");
+            window.alert("OTP has been sent to your mobile number.");
+            window.prompt("Enter the OTP : ");
+        }
+
+        function passVisibility() {
+            if (showPass.checked) {
+                password.type = "text";
+            }
+            else {
+                password.type = "password";
+            }
+        }
+
+        signup.onclick = function (event) {
+            if (username.value == "") {
+                window.alert("Username can't be null");
+                return;
+            }
+            if (emailid.value == "") {
+                window.alert("Email ID can't be null");
+                return;
+            }
+            if (!emailRegexExp.test(emailid.value)) {
+                window.alert("Please enter a valid Email ID");
+                return;
+            }
+            if (password.value == "") {
+                window.alert("Password can't be null");
+                return;
+            }
+            if (hasUppercase.test(password.value) && hasLowercase.test(password.value) && hasNumbers.test(password.value) && hasSymbols.test(password.value)) {
+                strength = 1;
+            }
+            else {
+                strength = 0;
+            }
+            if (!strength) {
+                window.alert("Invalid Password");
+                return;
+            }
+            if (username.value != "admin" || emailid.value != "admin@gmail.com" || password.value != "Admin@123") {
+                window.alert("Wrong credentials");
+                return;
+            }
+            window.location.href = 'http://127.0.0.1:5500/Sem4/ScriptingLanguages/CollegeWork/10.TodoList.html'
+        }
+    </script>
+</body>
+
+</html>

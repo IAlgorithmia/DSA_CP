@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            transition: all 2s ease-in-out 0.5s;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .menu_grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20rem;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-image: url(./backgroundimage1.jpg);
+            background-repeat: repeat-y;
+        }
+
+        .info_grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20rem;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(#FFDAB9, #b28671);
+            padding: 3rem;
+        }
+
+        .info_grid p {
+            font-size: 2rem;
+            border: 5px solid black;
+            border-radius: 50px;
+            padding: 1rem;
+        }
+
+        .info_grid p:target {
+            animation: highlight 2s ease-in-out 0.5s;
+        }
+
+        .menu_grid a {
+            text-decoration: none;
+            font-family: "Protest Guerrilla", sans-serif;
+            color: black;
+            font-size: 4rem;
+        }
+
+        @keyframes highlight {
+            0% {
+                border: 5px solid white;
+            }
+
+            50% {
+                border: 10px solid blue;
+            }
+
+            100% {
+                border: 5px solid white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="name_area">
+        <section class="menu_grid">
+            <a href="#PHP">PHP</a><a href="#HTML">HTML</a><a href="#Javascript">Javascript</a><a href="#CSS">CSS</a><a
+                href="#Bashscript">Bashscript</a>
+        </section>
+    </div>
+    <div class="info_area">
+        <section class="info_grid">
+            <p id="Bashscript">Bash scripting is a command language used in Unix-like operating systems. It automates
+                tasks, facilitates system
+                management, and allows users to create powerful scripts for various purposes.</p>
+            <p id="HTML">HTML is the standard language for creating web pages. It structures content using tags,
+                providing a foundation for
+                websites. HTML5 introduces new features for multimedia and interactivity.</p>
+            <p id="CSS">CSS enhances the presentation of HTML documents by defining styles like layout, colors, and
+                fonts. It separates design
+                from content, making web pages visually appealing and responsive across devices.
+            </p>
+            <p id="Javascript">JavaScript is a dynamic scripting language used to add interactivity and functionality to
+                web pages. It runs in
+                browsers, enabling client-side development for modern, interactive user experiences.</p>
+            <p id="PHP">PHP is a server-side scripting language designed for web development. It dynamically generates
+                web content, handles
+                forms, interacts with databases, and supports creating robust, dynamic websites.</p>
+        </section>
+    </div>
+</body>
+
+</html>
