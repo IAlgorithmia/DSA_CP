@@ -1,9 +1,0 @@
-.outerbox {
-    border: 5px solid black;
-    border-radius: 15px;
-    width: 50%;
-    margin: auto;
-    display: grid;
-    grid: 1fr;
-    padding: 25px;
-}

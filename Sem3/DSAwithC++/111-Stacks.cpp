@@ -177,7 +177,7 @@ struct KStacks{
         freeTop = i;
         return arr[i];
     }
-}
+};
 
 int main(){
     cout << "Hey there!" << endl;
