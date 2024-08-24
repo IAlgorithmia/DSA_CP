@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//Do maximal square and maxinaml rectangle
+
 /*
 Explanation : 
 

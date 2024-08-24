@@ -6,21 +6,25 @@ Explanation : Span includes values equal or smaller of the left
 Stock Span array return karna hai, span = (index of current element) - (index of the closest greater element on left side) 
 */
 
+//basically jab tak stack me koi element hai aur uska value current element se choti hai, tab tak pop karte raho
+//agar stack khali hai toh span = index + 1 since there is no greater element on the left side
+//agar stack me kuch hai toh span = index - stack.top() since stack.top() is the closest greater element on the left side
+
 vector<int> StockSpan(vector<int> stocks){
     vector<int> span;
-    stack<int> prev_greats;
-    for (int i = 0; i < stocks.size(); i++){
-        while (!prev_greats.empty() && !(stocks[prev_greats.top()] > stocks[i])){
-            prev_greats.pop();
+    stack<int> s;
+    s.push(0); //processing the first element
+    for (int i = 1; i < stocks.size(); i++){
+        while (s.empty() == false && stocks[s.top()] <= stocks[i]){
+            s.pop();
         }
-        if (prev_greats.size() == 0){
-            prev_greats.push(i);
+        if (s.size() == 0){
             span.push_back(i + 1);
         }
-        else if (stocks[prev_greats.top()] > stocks[i]){
-            span.push_back(i - prev_greats.top());
-            prev_greats.push(i);
+        else {
+            span.push_back(i - s.top());
         }
+        s.push(i);
     }
     return span;
 }
@@ -30,42 +34,45 @@ vector<int> StockSpan(vector<int> stocks){
 
 vector<int> PrevGreater(vector<int> stocks){
     vector<int> prev_greater;
-    stack<int> prev_greats;
+    stack<int> s;
     for (int i = 0; i < stocks.size(); i++){
-        while (!prev_greats.empty() && !(stocks[prev_greats.top()] > stocks[i])){
-            prev_greats.pop();
+        while (s.empty() == false && stocks[s.top()] <= stocks[i]){
+            s.pop();
         }
-        if (prev_greats.size() == 0){
-            prev_greats.push(i);
+        if (s.size() == 0){
             prev_greater.push_back(-1);
         }
-        else if (stocks[prev_greats.top()] > stocks[i]){
-            prev_greater.push_back(stocks[prev_greats.top()]);
-            prev_greats.push(i);
+        else if (stocks[s.top()] > stocks[i]){
+            prev_greater.push_back(stocks[s.top()]);
         }
+        s.push(i);
     }
     return prev_greater;
 }
 
 vector<int> NextGreater(vector<int> stocks){
     vector<int> next_greater;
-    stack<int> next_greats;
+    stack<int> s;
     for (int i = stocks.size() - 1; i >= 0; i--){
-        while (!next_greats.empty() && !(stocks[next_greats.top()] > stocks[i])){
-            next_greats.pop();
+        while (s.empty() == false && stocks[s.top()] <= stocks[i]){
+            s.pop();
         }
-        if (next_greats.size() == 0){
-            next_greats.push(i);
+        if (s.size() == 0){
+            s.push(i);
             next_greater.push_back(-1);
         }
-        else if (stocks[next_greats.top()] > stocks[i]){
-            next_greater.push_back(stocks[next_greats.top()]);
-            next_greats.push(i);
+        else if (stocks[s.top()] > stocks[i]){
+            next_greater.push_back(stocks[s.top()]);
+            s.push(i);
         }
     }
     reverse(next_greater.begin(), next_greater.end());
     return next_greater;
 }
+
+//basically 4 cases ban sakte hain 
+//closest smaller on left side, closest smaller on right side, closest greater on left side, closest greater on right side
+//each can be done in a similar fashion as above
 
 int main(){
     cout << "Enter number of stocks : " << endl;
