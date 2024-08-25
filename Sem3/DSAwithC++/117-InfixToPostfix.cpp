@@ -5,6 +5,9 @@ using namespace std;
 Explanation : THE BELOW CODE ONLY DEALS WITH SINGLE DIGIT EXPRESSIONS, WE CAN HANDLE MULTIPLE DIGIT EXPRESSIONS BY PROVIDING SPACE BETWEEN THEM AND THEN DOING THE SAME STUFF
 */
 
+// DONT FORGET TO FKIN EMPTY THE STACK INTO THE STRING
+// AFTER ALL IS SAID AND DONE
+
 int priority(char symbol)
 {
     if (symbol == '(' || symbol == ')')
@@ -26,42 +29,54 @@ int priority(char symbol)
     return 0;
 }
 
-string infixToPostfix(string infix){
+string infixToPostfix(string infix)
+{
     stack<char> opStack;
     string postfix;
 
-    for (int i = 0; i < infix.size(); i++){
+    for (int i = 0; i < infix.size(); i++)
+    {
         char item = infix[i];
 
-        if (item == ' '){
+        if (item == ' ')
+        {
             continue;
         }
-        //space check above
-        if ((int)item >= 97 && (int)item <= 122){
+        // space check above
+        if ((int)item >= 97 && (int)item <= 122)
+        {
             postfix.push_back(item);
         }
-        else{
-            if (item == '('){
+        else
+        {
+            if (item == '(')
+            {
                 opStack.push(item);
             }
-            else if (item == ')'){
-                while (opStack.top() != '('){
+            else if (item == ')')
+            {
+                while (opStack.top() != '(')
+                {
                     postfix.push_back(opStack.top());
                     opStack.pop();
                 }
                 opStack.pop();
             }
-            else{
-                again : 
-                if (opStack.empty() || priority(item) > priority(opStack.top())){
+            else
+            {
+            again:
+                if (opStack.empty() || priority(item) > priority(opStack.top()))
+                {
                     opStack.push(item);
                 }
-                else if (priority(item) < priority(opStack.top())){
+                else if (priority(item) < priority(opStack.top()))
+                {
                     postfix.push_back(opStack.top());
                     opStack.pop();
                     goto again;
                 }
-                else{
+                else
+                {
                     postfix.push_back(opStack.top());
                     opStack.pop();
                     opStack.push(item);
@@ -69,8 +84,9 @@ string infixToPostfix(string infix){
             }
         }
     }
-    
-    while (!opStack.empty()){
+
+    while (!opStack.empty())
+    {
         postfix.push_back(opStack.top());
         opStack.pop();
     }
@@ -78,7 +94,8 @@ string infixToPostfix(string infix){
     return postfix;
 }
 
-int main(){
+int main()
+{
     cout << "Enter a VALID expression in INFIX in all lowercase : " << endl;
     string infix;
     getline(cin, infix);

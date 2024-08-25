@@ -37,6 +37,7 @@ int postfixEval(string postFix){
         }
     }
     int result = Result.top();
+    //result is the only remaining element in the stack
     return result;
 }
 

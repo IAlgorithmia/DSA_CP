@@ -5,6 +5,9 @@ using namespace std;
 Explanation : 
 */
 
+// DONT FORGET TO FKIN EMPTY THE STACK INTO THE STRING
+// AFTER ALL IS SAID AND DONE
+
 int priority(char symbol)
 {
     if (symbol == '(' || symbol == ')')
@@ -79,11 +82,16 @@ string infixToPrefix(string infix){
 }
 
 int main(){
+
     cout << "Enter a VALID expression in infix in all lowercase : " << endl;
+
     string infix;
     getline(cin, infix);
+
     reverse(infix.begin(), infix.end());
+    
     string received = infixToPrefix(infix);
     reverse(received.begin(), received.end());
+
     cout << received << endl;
 }

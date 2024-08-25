@@ -22,8 +22,6 @@ Explanation : Like in the previous code, we can find the previous smaller elemen
 
 //Hence for the opimal solution, we need not even create the prev smaller and next smaller arrays, we can just use the stack to find the values
 
-// Do the largest rectangle in histogram problem and maximal square problem on leetcode
-
 // End mein leetcode vala answer hai
 
 int LargestHistogramAreaSolution1(vector<int> sample_vector)
