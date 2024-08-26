@@ -177,24 +177,473 @@ void reverse(queue<int> q){
 
 We will be given a number n, we have to find out n numbers in increasing order such that all of them have digits either 5 or 6
 
-We take numbers as string here since for a large n, the number may go out of range
-We solve the above by first adding 5 and 6 to the queue, after for n - 2 times, we keep dequeuing a number from the queue and add two elements to it, one after appending 5 to the end of the dequeued item and one after appending 6
-
 5 6
 6 55 56
 55 56 65 66
 56 65 66 555 556 and so on
 
-Limit ke liye count rakhlo ya fir loop hi kam baar chalao
+We take numbers as string here since for a large n, the number may go out of range
+
+void printFirstN(int n){
+    queue<int> q;
+    q.push("5");
+    q.push("6");
+    for (int i = 0; i < n; i++){
+        string str = q.pop();
+        cout << str << endl;
+        q.push(str + "5");
+        q.push(str + "6");
+    }
+}
+
+Were this a general case, we wouldve done the str + thing aprt in a loop for all the given digits
+
+If the question was to return the nth number, we would've created a counter, increased it each time we were going to insert
+anything into the queue, if it ever became equal to n, we would return what we were going to insert
+
 
 ### DEQUEUES ###
 
 Implementation :
 
 Doubly Linked List and Circular Array
+Singly Linked List not done because deletion from tail not possile in O(1) even if we maintain tail pointer
 
 Simple array implementation mein either we can make the pop costly (rear grows towards right and each time we deque something we gotta shift all the next elements leftwards) or the push costly (front grows towards right and each time we enque something we first gotta shif tall the items rightwards)
 Circular array mein we can use the fact that rear = (front + size - 1) % cap - here size is the number of elements and cap is the limit, ismein upar vali bakchodi nahi hai enque mein rear ko badha do bas % cap karke and deque mein front ko badha do %cap karke, empty and full ki conditions check kar lena
+
+Circular Array Implementation :
+
+insert at rear : we are going to increase the rear count
+delete at rear : we are going to decrease the rear count
+insert at front : we are going to decrease the front count
+delete at front : we are going to increase the front count
+
+// C++ implementation of De-queue using circular
+// array
+#include <iostream>
+using namespace std;
+
+// Maximum size of array or Dequeue
+#define MAX 100
+
+https://www.geeksforgeeks.org/implementation-deque-using-circular-array/
+
+// A structure to represent a Deque
+class Deque {
+    int arr[MAX];
+    int front;
+    int rear;
+    int size;
+
+public:
+    Deque(int size)
+    {
+        front = -1;
+        rear = 0;
+        this->size = size;
+    }
+
+    // Operations on Deque:
+    void insertfront(int key);
+    void insertrear(int key);
+    void deletefront();
+    void deleterear();
+    bool isFull();
+    bool isEmpty();
+    int getFront();
+    int getRear();
+};
+
+// Checks whether Deque is full or not.
+bool Deque::isFull()
+{
+    return ((front == 0 && rear == size - 1)
+            || front == rear + 1);
+}
+
+// Checks whether Deque is empty or not.
+bool Deque::isEmpty() { return (front == -1); }
+
+// Inserts an element at front
+void Deque::insertfront(int key)
+{
+    // check whether Deque if full or not
+    if (isFull()) {
+        cout << "Overflow\n" << endl;
+        return;
+    }
+
+    // If queue is initially empty
+    if (front == -1) {
+        front = 0;
+        rear = 0;
+    }
+
+    // front is at first position of queue
+    else if (front == 0)
+        front = size - 1;
+
+    else // decrement front end by '1'
+        front = front - 1;
+
+    // insert current element into Deque
+    arr[front] = key;
+}
+
+// function to inset element at rear end
+// of Deque.
+void Deque ::insertrear(int key)
+{
+    if (isFull()) {
+        cout << " Overflow\n " << endl;
+        return;
+    }
+
+    // If queue is initially empty
+    if (front == -1) {
+        front = 0;
+        rear = 0;
+    }
+
+    // rear is at last position of queue
+    else if (rear == size - 1)
+        rear = 0;
+
+    // increment rear end by '1'
+    else
+        rear = rear + 1;
+
+    // insert current element into Deque
+    arr[rear] = key;
+}
+
+// Deletes element at front end of Deque
+void Deque ::deletefront()
+{
+    // check whether Deque is empty or not
+    if (isEmpty()) {
+        cout << "Queue Underflow\n" << endl;
+        return;
+    }
+
+    // Deque has only one element
+    if (front == rear) {
+        front = -1;
+        rear = -1;
+    }
+    else
+        // back to initial position
+        if (front == size - 1)
+        front = 0;
+
+    else // increment front by '1' to remove current
+        // front value from Deque
+        front = front + 1;
+}
+
+// Delete element at rear end of Deque
+void Deque::deleterear()
+{
+    if (isEmpty()) {
+        cout << " Underflow\n" << endl;
+        return;
+    }
+
+    // Deque has only one element
+    if (front == rear) {
+        front = -1;
+        rear = -1;
+    }
+    else if (rear == 0)
+        rear = size - 1;
+    else
+        rear = rear - 1;
+}
+
+// Returns front element of Deque
+int Deque::getFront()
+{
+    // check whether Deque is empty or not
+    if (isEmpty()) {
+        cout << " Underflow\n" << endl;
+        return -1;
+    }
+    return arr[front];
+}
+
+// function return rear element of Deque
+int Deque::getRear()
+{
+    // check whether Deque is empty or not
+    if (isEmpty() || rear < 0) {
+        cout << " Underflow\n" << endl;
+        return -1;
+    }
+    return arr[rear];
+}
+
+// Driver code
+int main()
+{
+    Deque dq(5);
+
+    // Function calls
+    cout << "Insert element at rear end : 5 \n";
+    dq.insertrear(5);
+
+    cout << "insert element at rear end : 10 \n";
+    dq.insertrear(10);
+
+    cout << "get rear element "
+        << " " << dq.getRear() << endl;
+
+    dq.deleterear();
+    cout << "After delete rear element new rear"
+        << " become " << dq.getRear() << endl;
+
+    cout << "inserting element at front end \n";
+    dq.insertfront(15);
+
+    cout << "get front element "
+        << " " << dq.getFront() << endl;
+
+    dq.deletefront();
+
+    cout << "After delete front element new "
+        << "front become " << dq.getFront() << endl;
+    return 0;
+}
+
+//Using DLL
+
+https://www.geeksforgeeks.org/implementation-deque-using-doubly-linked-list/
+
+// C++ implementation of Deque using
+// doubly linked list
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Node of a doubly linked list
+struct Node {
+    int data;
+    Node *prev, *next;
+    // Function to get a new node
+    static Node* getnode(int data)
+    {
+        Node* newNode = (Node*)malloc(sizeof(Node));
+        newNode->data = data;
+        newNode->prev = newNode->next = NULL;
+        return newNode;
+    }
+};
+
+// A structure to represent a deque
+class Deque {
+    Node* front;
+    Node* rear;
+    int Size;
+
+public:
+    Deque()
+    {
+        front = rear = NULL;
+        Size = 0;
+    }
+
+    // Operations on Deque
+    void insertFront(int data);
+    void insertRear(int data);
+    void deleteFront();
+    void deleteRear();
+    int getFront();
+    int getRear();
+    int size();
+    bool isEmpty();
+    void erase();
+};
+
+// Function to check whether deque
+// is empty or not
+bool Deque::isEmpty() { return (front == NULL); }
+
+// Function to return the number of
+// elements in the deque
+int Deque::size() { return Size; }
+
+// Function to insert an element
+// at the front end
+void Deque::insertFront(int data)
+{
+    Node* newNode = Node::getnode(data);
+    // If true then new element cannot be added
+    // and it is an 'Overflow' condition
+    if (newNode == NULL)
+        cout << "OverFlow\n";
+    else {
+        // If deque is empty
+        if (front == NULL)
+            rear = front = newNode;
+
+        // Inserts node at the front end
+        else {
+            newNode->next = front;
+            front->prev = newNode;
+            front = newNode;
+        }
+
+        // Increments count of elements by 1
+        Size++;
+    }
+}
+
+// Function to insert an element
+// at the rear end
+void Deque::insertRear(int data)
+{
+    Node* newNode = Node::getnode(data);
+    // If true then new element cannot be added
+    // and it is an 'Overflow' condition
+    if (newNode == NULL)
+        cout << "OverFlow\n";
+    else {
+        // If deque is empty
+        if (rear == NULL)
+            front = rear = newNode;
+
+        // Inserts node at the rear end
+        else {
+            newNode->prev = rear;
+            rear->next = newNode;
+            rear = newNode;
+        }
+
+        Size++;
+    }
+}
+
+// Function to delete the element
+// from the front end
+void Deque::deleteFront()
+{
+    // If deque is empty then
+    // 'Underflow' condition
+    if (isEmpty())
+        cout << "UnderFlow\n";
+
+    // Deletes the node from the front end and makes
+    // the adjustment in the links
+    else {
+        Node* temp = front;
+        front = front->next;
+
+        // If only one element was present
+        if (front == NULL)
+            rear = NULL;
+        else
+            front->prev = NULL;
+        free(temp);
+
+        // Decrements count of elements by 1
+        Size--;
+    }
+}
+
+// Function to delete the element
+// from the rear end
+void Deque::deleteRear()
+{
+    // If deque is empty then
+    // 'Underflow' condition
+    if (isEmpty())
+        cout << "UnderFlow\n";
+
+    // Deletes the node from the rear end and makes
+    // the adjustment in the links
+    else {
+        Node* temp = rear;
+        rear = rear->prev;
+
+        // If only one element was present
+        if (rear == NULL)
+            front = NULL;
+        else
+            rear->next = NULL;
+        free(temp);
+
+        // Decrements count of elements by 1
+        Size--;
+    }
+}
+
+// Function to return the element
+// at the front end
+int Deque::getFront()
+{
+    // If deque is empty, then returns
+    // garbage value
+    if (isEmpty())
+        return -1;
+    return front->data;
+}
+
+// Function to return the element
+// at the rear end
+int Deque::getRear()
+{
+    // If deque is empty, then returns
+    // garbage value
+    if (isEmpty())
+        return -1;
+    return rear->data;
+}
+
+// Function to delete all the elements
+// from Deque
+void Deque::erase()
+{
+    rear = NULL;
+    while (front != NULL) {
+        Node* temp = front;
+        front = front->next;
+        free(temp);
+    }
+    Size = 0;
+}
+
+// Driver program to test above
+int main()
+{
+    Deque dq;
+    cout << "Insert element '5' at rear end\n";
+    dq.insertRear(5);
+
+    cout << "Insert element '10' at rear end\n";
+    dq.insertRear(10);
+
+    cout << "Rear end element: " << dq.getRear() << endl;
+
+    dq.deleteRear();
+    cout << "After deleting rear element new rear"
+        << " is: " << dq.getRear() << endl;
+
+    cout << "Inserting element '15' at front end \n";
+    dq.insertFront(15);
+
+    cout << "Front end element: " << dq.getFront() << endl;
+
+    cout << "Number of elements in Deque: " << dq.size()
+        << endl;
+
+    dq.deleteFront();
+    cout << "After deleting front element new "
+        << "front is: " << dq.getFront() << endl;
+
+    return 0;
+}
+
+
 
 Applications :
 
@@ -204,9 +653,13 @@ Applications :
 4. Implementing Priority Queue with two priorities
 5. Maximum/Minimum of all subarrays of size k in an array
 
+If we are required to design a DS such that we need to implement insertMin, insertMax,
+getMin, getMax, extractMin, extractMax
 
+WE can either use two stacks, one for min one for max, or we can use a simple Dequeue, using its one ends as min and other as max
 */
 
-int main(){
+int main()
+{
     cout << "Hey there!" << endl;
 }
