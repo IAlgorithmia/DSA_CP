@@ -15,6 +15,7 @@ Stability chahiye to merge sort, else quick sort
 
 Best Case occurs when the partition function keeps dividing the array into two equal halves (lomuto - when the selected pivot happenes to be at the exact middle of the entire array)
 Worst Case occures when the partition function keeps dividing the array into two part having lengths of 1 and (high - low + 1) - 1 (lomuto - greatest or smallest element is picked). When the array is already sorted in increasing or decreasing order (for lomuto and hoarse)
+Basically the picked pivot consistently is the smallest or the largest element in the array.
 To prevent this, we pick any random index in the given range, swap it with first (hoarse) or last (lomuto) then do the same thing. 
 
 Quick sort requires call stack for recursion call stack. If we define inplace as not copying the original array, then qiocksort is inplace, if we define as something that takes extra space, then quicksort is not inplace. since it requires space for recrsive calls
